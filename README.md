@@ -6,6 +6,8 @@ The game of Werewolves
   /public/index.html: The Game <br>
   /public/css: The CSS files <br>
   /public/js: The JS files <br>
+  /public/cards/[role].html <br>
+  /public/cards/[role].js <br>
   /public/res: The resource files (images)<br>
 
 # Data Structure
@@ -90,7 +92,7 @@ Page 4.
       choose who to bring to hell with
      if not dead 
       continue 
-```
+```P
 Page 5 Morning. Display the resut as a floating window
 ```
   Vote for Police 
@@ -111,3 +113,16 @@ Page 7 Loop until game is over:
 Page police popup: If police is dead, pass the police to another player 
 
 Page hunter bring to hell popup: if hunter is dead, bring another person to hell
+
+# Github Branches 
+
+  Master
+  Byron
+  Jinhua
+
+# Project Schedule 
+
+Page 1 - 3, and Page 4 (prophet), page Police popup and Hunter popup @ginward DDL Friday 
+
+Page 4 (Werewolves, Hunter, Cupid) @Byron, DDL Friday 
+
