@@ -18,18 +18,107 @@ body {
     text-align: center;
     font-size: 18px;
     background: #fff;
-    
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
 }
+#wolf-text{
+
+}
+.ms-container {
+    margin:auto;
+}
+.slider_inside_container{
+    margin-top: 10%;
+    margin-bottom: 20px;
+    text-align: center;
+}
+.wolf_img{
+    display: inline;
+    margin-top: 20px;
+}
+.num_player_hint{
+    display: inherit;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.selectivity-input {
+    width: 200px !important;
+}
+.intro_butt{
+    display: inherit;
+    margin:auto;
+    margin-top: 30px;
+}
+
+/*
+ * button
+ */
+ /* vars and mixins */
+@button-color: cornflowerblue;
+@button-height: 100px;
+@button-width: 240px;
+@squish: 10px; /* vary the squish amount */
+
+.square-side {
+  content:"";
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: (@button-width/2) solid transparent;
+  border-top-width: 0;
+  border-bottom-width: 0;
+  height: 100%;
+  width: 0;
+  z-index: -1;
+  transition: all .1s ease-out;
+  -webkit-transition: all .1s ease-out;
+}
+
+.trapezoid-side {
+  border-top-width: @squish;
+  border-bottom-width: @squish;
+  border-radius: .2em;
+  top: -(@squish);
+}
+
+/* styles */
+button{ 
+  font-size: 2em;
+  color: white;
+  display: block;
+  margin: 2em auto;
+  height: @button-height;
+  width: @button-width;
+  background: @button-color;
+  border: none;
+  position: relative;
+  width: @button-width;
+  transition: all .2s ease-out;
+  -webkit-transition: all .2s ease-out;
+  box-shadow: 0 0 .25em #333;
+  cursor: pointer;
+  outline: none;
+  
+  &::before {
+    .square-side;
+    border-left-color: @button-color;
+  }
+
+  &::after {
+    .square-side;
+    border-right-color: @button-color;
+  }
+  
+  /* mashed state */
+  &:active {
+   -webkit-transform: scale(1.2,.8);
+    
+   &::before {
+     .trapezoid-side;
+     border-left-color: @button-color;
+   }
+
+   &::after {
+     .trapezoid-side;
+     border-right-color: @button-color;
+   }
+  }
+}/* end button */

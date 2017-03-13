@@ -3,29 +3,50 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		 <!-- Link Swiper's CSS -->
     	<link rel="stylesheet" href="css/swiper.min.css">
+    	<link href="css/multi-select.css" media="screen" rel="stylesheet" type="text/css">
     	<link rel="stylesheet" href="css/style.css">
     	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    	<script src="js/jquery.multi-select.js" type="text/javascript"></script>
     	<!-- Swiper JS -->
     	<script src="js/swiper.min.js"></script>
+    	<!--Selectivity-->
+    	<script src="js/selectivity-jquery.min.js"></script>
+    	<link rel="stylesheet" type="text/css" href="css/selectivity-jquery.min.css">
 	</head>
 	<body>
 		<!-- Swiper -->
 		<div class="swiper-container">
 		    <div class="swiper-wrapper">
-		        <div class="swiper-slide">Slide 1</div>
-		        <div class="swiper-slide">Slide 2</div>
-		        <div class="swiper-slide">Slide 3</div>
-		        <div class="swiper-slide">Slide 4</div>
-		        <div class="swiper-slide">Slide 5</div>
-		        <div class="swiper-slide">Slide 6</div>
-		        <div class="swiper-slide">Slide 7</div>
-		        <div class="swiper-slide">Slide 8</div>
-		        <div class="swiper-slide">Slide 9</div>
-		        <div class="swiper-slide">Slide 10</div>
+		    	<div class="swiper-slide">
+		    		<div class="slider_inside_container">
+			    		<img class="wolf_img" src="res/wolf.png">
+			    		<span class="num_player_hint">有几个人玩游戏呢</span>
+			    		<select id="number_of_players">
+			    			<option>9</option>
+			    			<option>10</option>
+			    			<option>11</option>
+			    			<option>12</option>
+			    		</select>
+			    		<button class="intro_butt">Next</button>
+		    		</div>
+		    	</div>
+		        <div class="swiper-slide">天黑请闭眼</div>
+		        <div class="swiper-slide">丘比特请睁眼</div>
+		        <div class="swiper-slide">
+		        	<span>狼人请睁眼</span>
+					<select multiple="multiple" id="wolf-select" name="my-select[]">
+					  <option value='elem_1'>1</option>
+					  <option value='elem_2'>2</option>
+					  <option value='elem_3'>3</option>
+					  <option value='elem_4'>4</option>
+					</select>
+		        </div>
+		        <div class="swiper-slide">女巫请睁眼</div>
+		        <div class="swiper-slide">预言家请睁眼</div>
 		    </div>
 		    <!-- Add Pagination -->
 		    <div class="swiper-pagination"></div>
-		    <script type="text/javascript" src="js/index.js"></script>
 		</div>
+		<script type="text/javascript" src="js/index.js"></script>
 	</body>
 </html>
