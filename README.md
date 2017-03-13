@@ -92,7 +92,7 @@ Page 4.
       choose who to bring to hell with
      if not dead 
       continue 
-```P
+```
 Page 5 Morning. Display the resut as a floating window
 ```
   Vote for Police 
