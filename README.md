@@ -1,5 +1,5 @@
 # Werewolves
-The game of Werewolves
+The game of Werewolves (Work in Process)
 
 # Directory Structure 
 
@@ -69,8 +69,8 @@ The game of Werewolves
 # Game Process Design 
 - Page 1. Select number of players <br>
 - Page 2. Select number of Gods <br>
-        Select number of Wolves <br>
-        Calculates number of Villagers <br>
+          Select number of Wolves <br>
+          Calculates number of Villagers <br>
 - Page 3. Game Starts - Night 
 - Page 4. 
 ```
