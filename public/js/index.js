@@ -3,27 +3,22 @@ var swiper = new Swiper('.swiper-container', {
     paginationClickable: true,
 });
 
-$('#wolf-select').multiSelect()
-
-$('#number_of_players').selectivity({
-    allowClear: true,
-    items: ['9', '10', '11', '12'],
-    placeholder: '请选择'
-});
-
 document.addEventListener("touchstart", function() {},false); // add this junk to make iOS observe the :active state for touch
 
 jQuery(document).ready(function(){
-	load_card("cards/setup.html");
+	load_card("cards/setup.html", "cards/setup.js");
 });
 
-function load_card(url){
-	jQuery.get(url, function(data){
+function load_card(url_to_html, url_to_js){
+	jQuery.get(url_to_html, function(data){
 		jQuery("#swipe-wrap").append(data);
 		var swiper = new Swiper('.swiper-container', {
 		    pagination: '.swiper-pagination',
 		    paginationClickable: true,
 		});
+		if (url_to_js!=""){
+			jQuery.getScript(url_to_js);
+		}
 	});	
 }
 
