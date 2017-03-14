@@ -3,12 +3,12 @@ The game of Werewolves
 
 # Directory Structure 
 
-  /public/index.html: The Game <br>
-  /public/css: The CSS files <br>
-  /public/js: The JS files <br>
-  /public/cards/[role].html <br>
-  /public/cards/[role].js <br>
-  /public/res: The resource files (images)<br>
+  - /public/index.html: The Game <br>
+  - /public/css: The CSS files <br>
+  - /public/js: The JS files <br>
+  - /public/cards/[role].html <br>
+  - /public/cards/[role].js <br>
+  - /public/res: The resource files (images)<br>
 
 # Data Structure
 ```
@@ -67,12 +67,12 @@ The game of Werewolves
 ```
 
 # Game Process Design 
-Page 1. Select number of players <br>
-Page 2. Select number of Gods <br>
+- Page 1. Select number of players <br>
+- Page 2. Select number of Gods <br>
         Select number of Wolves <br>
         Calculates number of Villagers <br>
-Page 3. Game Starts - Night 
-Page 4. 
+- Page 3. Game Starts - Night 
+- Page 4. 
 ```
   If cupid exists 
     cupid open eyes 
@@ -93,7 +93,7 @@ Page 4.
      if not dead 
       continue 
 ```
-Page 5 Morning. Display the resut as a floating window
+- Page 5 Morning. Display the resut as a floating window
 ```
   Vote for Police 
   God Declares the Results
@@ -102,27 +102,27 @@ Page 5 Morning. Display the resut as a floating window
     kills a member
     continue to next loop, skip page 6
 ```
-Page 6 Vote to kill a member 
+- Page 6 Vote to kill a member 
 
-Check if Game is Over: 
-  if Police is not dead, compare the number of votes to the wolf and the rest 
-  if Police is dead, check the number of alive wolves and the rest 
+- Check if Game is Over: 
+  - if Police is not dead, compare the number of votes to the wolf and the rest 
+  - if Police is dead, check the number of alive wolves and the rest 
   
-Page 7 Loop until game is over: 
+- Page 7 Loop until game is over: 
 
-Page police popup: If police is dead, pass the police to another player 
+- Page police popup: If police is dead, pass the police to another player 
 
-Page hunter bring to hell popup: if hunter is dead, bring another person to hell
+- Page hunter bring to hell popup: if hunter is dead, bring another person to hell
 
 # Github Branches 
 
-  Master
-  Byron
-  Jinhua
+  - Master
+  - Byron
+  - Jinhua
 
 # Project Schedule 
 
-Page 1 - 3, and Page 4 (prophet), page Police popup and Hunter popup @ginward DDL Friday 
+- Page 1 - 3, and Page 4 (prophet), page Police popup and Hunter popup @ginward DDL Friday 
 
-Page 4 (Werewolves, Hunter, Cupid) @Byron, DDL Friday 
+- Page 4 (Werewolves, Hunter, Cupid) @Byron, DDL Friday 
 
