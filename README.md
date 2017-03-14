@@ -126,3 +126,11 @@ The game of Werewolves (Work in Process)
 
 - Page 4 (Werewolves, Hunter, Cupid) @Byron, DDL Friday 
 
+# Some notes on dynamically loading HTML and Javascript 
+There is a js file for each html fragment in Cards. While the html files and dynamically loaded, the js files are loaded in the beginning and is loaded only once. 
+To make sure that the onclick events fires, use the following code: 
+```
+$('body').on('click', '#my-button', function () {
+     console.log("");
+});
+```
