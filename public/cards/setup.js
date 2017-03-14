@@ -1,6 +1,6 @@
 jQuery(document).ready(function(){
 	jQuery('body').on('click', '#intro_button', function () {
-	     alert("clicked");
+		
 	});
 	$('#number_of_players').selectivity({
 	    allowClear: true,
