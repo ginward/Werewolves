@@ -34,32 +34,25 @@ The game of Werewolves (Work in Process)
     }
   }
 
-  var players = [
-    0 => {
-      role: // (string) role name, 
-      live_status: // (bool) true/false,
-      killed_by: // (int) player_index, if -1 then killed by vote
-      saved_by: // (int) player_index,
-      police: // (bool) true/false,
-      bring_to_hell: // (int) player_index
-      die: function(){
-        if (police){
-          re_elect()
-          live_status = false
-        } 
-        if (role == "hunter"){
-          popup to enter bring_to_hell
-          kill(bring_to_hell) //popup to enter the play to kill
-        }
-      }
-      save: function(index){
-        if (role=="witch") {
-          players[index].saved_by = current_index
-          players[live_status] = true
-        }
-      }
-    }
-   ] //the number of players vary between 9 ~ 12 
+  var players = [] //the number of players vary between 9 ~ 12. @contains Player object
+
+  //the player object 
+  var Player = function (role){
+	this.role = role; 
+	this.live_status = true;
+	this.killed_by = -2; 
+	this.saved_by = -2;
+	this.police = false; 
+	this.bring_to_hell = -2; 
+	this.die = function(murderer){
+		this.live_status = false; 
+		this.killed_by = murderer;
+	}
+	this.save_live = function(hero){
+		this.live_status = true;
+		this.saved_by = hero;
+	}
+  }
 
   var kill = function (index){
     players[index].die()
