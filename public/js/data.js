@@ -30,18 +30,12 @@ var Player = function (role){
 	this.police = false; 
 	this.bring_to_hell = -2; 
 	this.die = function(murderer){
-		if(this.police){
-			//todo: wakeup the police dialog
-			this.police = false; 			
-		}
-		if(this.role=="hunter"){
-			//todo: popup to select another person to kill
-		}
 		this.live_status = false; 
 		this.killed_by = murderer;
 	}
-	this.save = function(hero){
-
+	this.save_live = function(hero){
+		this.live_status = true;
+		this.saved_by = hero;
 	}
 }
 
