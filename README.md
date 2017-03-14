@@ -134,3 +134,20 @@ $('body').on('click', '#my-button', function () {
      console.log("");
 });
 ```
+To load a card, simply call load_card(url)
+To remove a card, simply call remove_card(card_css)
+```
+function load_card(url){
+	jQuery.get(url, function(data){
+		jQuery("#swipe-wrap").append(data);
+		var swiper = new Swiper('.swiper-container', {
+		    pagination: '.swiper-pagination',
+		    paginationClickable: true,
+		});
+	});	
+}
+
+function remove_card(card_css){
+	jQuery(card_css).remove();
+}
+```
