@@ -11,6 +11,7 @@ The game of Werewolves (Work in Process)
   - /public/res: The resource files (images)<br>
 
 # Data Structure
+- The data object is stored in /public/js/data.js
 ```
   var roles = {
     "witch": "女巫",
