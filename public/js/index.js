@@ -1,3 +1,6 @@
+/*
+ * The JS file that sets up the UI and initiates everything 
+ */
 var swiper = new Swiper('.swiper-container', {
     pagination: '.swiper-pagination',
     paginationClickable: true,
