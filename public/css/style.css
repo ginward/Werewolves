@@ -29,6 +29,8 @@ body {
     margin-top: 10%;
     margin-bottom: 20px;
     text-align: center;
+    height: 100%;
+    overflow: hidden;
 }
 .wolf_img{
     display: inline;
@@ -146,4 +148,10 @@ button:active::after {
 .select_setup {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.role_div {
+  display: inline-block !important;
+  margin-left: 5px;
+  margin-right: 5px;
 }
