@@ -2,25 +2,35 @@
  * The data object to store data of Werewolves
  */
 
-var roles = {
-	"witch": "女巫",
-	"werewolf": "狼人", 
-	"hunter": "猎人", 
-	"prophet": "预言家", 
-	"cupid": "丘比特",
-	"villager": "村民",
-	"police": "警长"
+var Data = function(){}
+
+Data.prototype.role_count = {
+	god:0,
+	werewolf:0,
+	people:0
+}
+
+Data.prototype.roles = {
+	witch: "女巫",
+	werewolf: "狼人", 
+	hunter: "猎人", 
+	prophet: "预言家", 
+	cupid: "丘比特",
+	villager: "村民",
+	police: "警长"
 };
 
-var active_roles = {
-	"werewolf": [], 
-	"villager": [],
-	"god": {
-	  "witch": [],//must have
-	  "hunter":[],//must have
-	  "prophet":[], //must have
+Data.prototype.active_roles = {
+	werewolf: [], 
+	villager: [],
+	god: {
+	  witch: [],//must have
+	  hunter:[],//must have
+	  prophet:[], //must have
 	}
 };
+
+Data.prototype.players = [];
 
 var Player = function (role){
 	this.role = role; 
@@ -38,5 +48,3 @@ var Player = function (role){
 		this.saved_by = hero;
 	}
 }
-
-var players = [];

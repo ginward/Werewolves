@@ -1,6 +1,9 @@
 jQuery(document).ready(function(){
 	jQuery('body').on('click', '#intro_button', function () {
-		
+		data.role_count.god = jQuery("#num_god").val();
+		data.role_count.witch = jQuery("#witch").val();
+		data.role_count.people = jQuery("#num_people").val();
+		nextPage();
 	});
 	$('#num_god').selectivity({
 	    allowClear: true,
@@ -18,3 +21,7 @@ jQuery(document).ready(function(){
 	    placeholder: '请选择'
 	});
 });
+
+function nextPage(){
+	swiper.slideNext();
+}
