@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
 function load_card(url_to_html, url_to_js){
 	jQuery.get(url_to_html, function(data){
 		jQuery("#swipe-wrap").append(data);
-		var swiper = new Swiper('.swiper-container', {
+		swiper = new Swiper('.swiper-container', {
 		    pagination: '.swiper-pagination',
 		    paginationClickable: true,
 		});

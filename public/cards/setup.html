@@ -1,13 +1,25 @@
 <div class="swiper-slide card_setup" >
 	<div class="slider_inside_container">
 		<img class="wolf_img" src="res/wolf.png">
-		<span class="num_player_hint">有几个人玩游戏呢</span>
-		<select id="number_of_players">
-			<option>9</option>
-			<option>10</option>
-			<option>11</option>
-			<option>12</option>
+		<span class="num_player_hint">请选择游戏的人数</span>
+		<div class="select_setup">
+			<select id="num_god">
+				<option value="3">3 神</option>
+				<option value="4">4 神</option>
+			</select>
+		</div>
+		<div class="select_setup">
+		<select id="num_wolf">
+			<option value="3">3 狼</option>
+			<option value="4">4 狼</option>
 		</select>
+		</div>
+		<div class="select_setup">
+		<select id="num_people">
+			<option value="3">3 民</option>
+			<option value="4">4 民</option>
+		</select>
+		</div>
 		<button id="intro_button" class="intro_butt">Next</button>
 	</div>
 </div>
