@@ -25,3 +25,13 @@ jQuery(document).ready(function(){
 function nextPage(){
 	swiper.slideNext();
 }
+
+function role_select(ele){
+	if (ele.style.backgroundColor=="cornflowerblue"){
+		ele.style.backgroundColor="white";
+		delete data.active_roles.god.cupid;
+	} else {
+		ele.style.backgroundColor="cornflowerblue";
+		data.active_roles.god.cupid = [];
+	}
+}

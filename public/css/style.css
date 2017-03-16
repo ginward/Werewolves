@@ -162,3 +162,7 @@ button:active::after {
   background-color: cornflowerblue;
 }
 
+#cupid_div: focus{
+  background-color: cornflowerblue;
+}
+
