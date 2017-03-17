@@ -45,7 +45,7 @@ function launchGame(){
 
 function gameCards(params){
 	//load the charactercards
-	jQuery.get("cards/game.html", function(data){
+	jQuery.get("cards/darkness.html", function(data){
 		if(params != null && params.length>0){
 			for(var i=0;i<params.length;i++){
 				data += params[i];
@@ -58,7 +58,10 @@ function gameCards(params){
 				data+=witch;
 				jQuery.get("cards/prophets.html", function(prophet){
 					data+=prophet;
-					load_card_html(data, "cards/game.js");
+					jQuery.get("cards/morning.html",function(morning){
+						data+=morning;
+						load_card_html(data, "cards/game.js");
+					})
 				});
 			});
 		});
