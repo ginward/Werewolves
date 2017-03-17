@@ -28,6 +28,19 @@ function load_card(url_to_html, url_to_js){
 	});	
 }
 
+function load_card_html(html, url_to_js){
+	jQuery("#swipe-wrap").append(html);
+	swiper = new Swiper('.swiper-container', {
+	    pagination: '.swiper-pagination',
+	    paginationClickable: true,
+	});
+	if (url_to_js!=""){
+		jQuery.getScript(url_to_js);
+	}
+}
+
 function remove_card(card_css){
+	swiper.slideTo(0);//reset the swiper
 	jQuery(card_css).remove();
+	swiper.destroy();//destroy the old swiper
 }

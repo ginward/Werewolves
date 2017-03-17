@@ -151,15 +151,19 @@ button:active::after {
 }
 
 .role_div {
+  border-radius: 50%;
   display: inline-block !important;
   margin-left: 5px;
   margin-right: 5px;
-  width: 100px;
-  height: 100px;
+  width: 130px;
+  height: 130px;
 }
 
 .role_div:hover {
   background-color: cornflowerblue;
+  transition-property: background;
+  transition-duration: 1s;
+  transition-timing-function: ease-in;
 }
 
 #cupid_div: focus{
