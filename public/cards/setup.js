@@ -32,10 +32,37 @@ function nextPage(){
 function launchGame(){
 	//prepare the set of cards and launch the game
 	remove_card(".card_setup");
-	if (cupid in data.active_roles.god){
+	if ('cupid' in data.active_roles.god){
 		//insert the cupid card at first
-		
+		jQuery.get("cards/cupid.html", function(data){
+			var arr = [data];
+			gameCards(arr);
+		});	
+	} else {
+		gameCards();
 	}
+}
+
+function gameCards(params){
+	//load the charactercards
+	jQuery.get("cards/game.html", function(data){
+		if(params != null && params.length>0){
+			for(var i=0;i<params.length;i++){
+				data += params[i];
+			}
+		}
+		//load the fixed charactoers 
+		jQuery.get("cards/wolf.html", function(wolf){
+			data+=wolf;
+			jQuery.get("cards/witch.html", function(witch){
+				data+=witch;
+				jQuery.get("cards/prophets.html", function(prophet){
+					data+=prophet;
+					load_card_html(data, "cards/game.js");
+				});
+			});
+		});
+	});
 }
 
 function role_select(ele){
