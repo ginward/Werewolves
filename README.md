@@ -13,7 +13,7 @@ The game of Werewolves (Work in Process)
 # Data Structure
 - The data object is stored in /public/js/data.js
 ```
- var Data = function(){}
+var Data = function(){}
 
 Data.prototype.role_count = {
 	god:0,
