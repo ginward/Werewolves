@@ -5,6 +5,10 @@ jQuery(document).ready(function(){
 		data.role_count.people = jQuery("#num_people").val();
 		nextPage();
 	});
+	jQuery('body').on('click','#game_start', function(){
+		remove_card(".card_setup");
+		
+	});
 	$('#num_god').selectivity({
 	    allowClear: true,
 	    items: ['9', '10', '11', '12'],
@@ -24,6 +28,10 @@ jQuery(document).ready(function(){
 
 function nextPage(){
 	swiper.slideNext();
+}
+
+function launchGame(){
+
 }
 
 function role_select(ele){
