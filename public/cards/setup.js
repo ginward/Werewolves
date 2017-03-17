@@ -23,6 +23,7 @@ jQuery(document).ready(function(){
 	    items: ['9', '10', '11', '12'],
 	    placeholder: '请选择'
 	});
+	init_roles();
 });
 
 function nextPageSetup(){
@@ -35,7 +36,10 @@ function init_roles(){
 	var num_god = jQuery("#num_god").val();
 	var num_people = jQuery("#num_people").val();
 	var num_wolf = jQuery("#num_wolf").val();
-	var total_num = int(num_god) + int(num_people) + int(num_wolf);
+	data.role_count.god = num_god;
+	data.role_count.werewolf = num_wolf;
+	data.role_count.people = num_people;
+	var total_num = parseInt(num_god) + parseInt(num_people) + parseInt(num_wolf);
 	for (var i=0;i<total_num;i++){
 		var player = new Player("");
 		data.players.push(player);

@@ -3,19 +3,19 @@
 		<img class="wolf_img" src="res/wolf.png">
 		<span class="num_player_hint">请选择游戏的人数</span>
 		<div class="select_setup">
-			<select id="num_god">
+			<select id="num_god" onchange="init_roles();">
 				<option value="3">3 神</option>
 				<option value="4">4 神</option>
 			</select>
 		</div>
 		<div class="select_setup">
-		<select id="num_wolf">
+		<select id="num_wolf" onchange="init_roles();">
 			<option value="3">3 狼</option>
 			<option value="4">4 狼</option>
 		</select>
 		</div>
 		<div class="select_setup">
-			<select id="num_people">
+			<select id="num_people" onchange="init_roles();">
 				<option value="3">3 民</option>
 				<option value="4">4 民</option>
 			</select>

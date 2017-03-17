@@ -145,6 +145,11 @@ button:active::after {
 }
 /* end button */
 
+/*fix the selectivity problem*/
+.selectivity-dropdown {
+  position: absolute !important;
+}
+
 .select_setup {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -180,3 +185,6 @@ button:active::after {
   background-color: cornflowerblue;
 }
 
+.wolf {
+  position: relative !important;
+}
