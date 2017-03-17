@@ -191,3 +191,11 @@ button:active::after {
 .wolf_slide {
   margin-top: 3% !important;
 }
+
+.witch_slide {
+  margin-top: 0 !important;
+}
+
+.select_witch p {
+  font-size: 0.7em;
+}
