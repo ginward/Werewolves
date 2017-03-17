@@ -3,6 +3,27 @@ jQuery(document).ready(function(){
 	jQuery('body').on('click', '.game_butt', function () {
 		nextPage();
 	});
+	jQuery('body').on('click', '#wolf_butt', function(){
+		var arr = jQuery('#wolf_kill').selectivity('data');
+		for (var i=0; i<players.length; i++){
+			for (var j=0; j< arr.length; j++){
+				var role = players[i].role;
+				if(players[i].role=="witch" || players[i].role=="hunter" ||  players[i].role=="cupid" ||  players[i].role=="prophet") {
+					role = "god";
+				}
+				if (i==arr[j].id){
+					data.role_count[role] -= 1; 
+					players[i].die();
+				} else {
+					if(players[i].live_status==false){
+						data.role_count[role] +=1; 
+					}
+					players[i].reset();
+				}
+			}
+		}
+
+	});
 });
 
 function activeCardName(){

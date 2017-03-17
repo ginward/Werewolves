@@ -43,6 +43,10 @@ var Player = function (role){
 		this.live_status = false; 
 		this.killed_by = murderer;
 	}
+	this.reset = function(){
+		this.live_status = true; 
+		this.killed_by = -1;		
+	}
 	this.save_live = function(hero){
 		this.live_status = true;
 		this.saved_by = hero;
