@@ -13,31 +13,37 @@ The game of Werewolves (Work in Process)
 # Data Structure
 - The data object is stored in /public/js/data.js
 ```
-  var roles = {
-    "witch": "女巫",
-    "werewolf": "狼人", 
-    "hunter": "猎人", 
-    "prophet": "预言家", 
-    "cupid": "丘比特",
-    "villager": "村民",
-    "police": "警长"
-  }
+ var Data = function(){}
 
-  var active_roles = {
-    "werewolf": []
-    "villager": []
-    "god": {
-      "witch": [],//must have
-      "hunter":[],//must have
-      "prophet":[], //must have
-      "cupid":[], //optional 
-    }
-  }
+Data.prototype.role_count = {
+	god:0,
+	werewolf:0,
+	people:0
+}
 
-  var players = [] //the number of players vary between 9 ~ 12. @contains Player object
+Data.prototype.roles = {
+	witch: "女巫",
+	werewolf: "狼人", 
+	hunter: "猎人", 
+	prophet: "预言家", 
+	cupid: "丘比特",
+	villager: "村民",
+	police: "警长"
+};
 
-  //the player object 
-  var Player = function (role){
+Data.prototype.active_roles = {
+	werewolf: [], 
+	villager: [],
+	god: {
+	  witch: [],//must have
+	  hunter:[],//must have
+	  prophet:[], //must have
+	}
+};
+
+Data.prototype.players = [];
+
+var Player = function (role){
 	this.role = role; 
 	this.live_status = true;
 	this.killed_by = -2; 
@@ -48,15 +54,15 @@ The game of Werewolves (Work in Process)
 		this.live_status = false; 
 		this.killed_by = murderer;
 	}
+	this.reset = function(){
+		this.live_status = true; 
+		this.killed_by = -1;		
+	}
 	this.save_live = function(hero){
 		this.live_status = true;
 		this.saved_by = hero;
 	}
-  }
-
-  var kill = function (index){
-    players[index].die()
-  }
+}
 
 ```
 
