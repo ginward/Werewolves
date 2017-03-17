@@ -1,5 +1,1 @@
-/*
- * The JS file that runs the logic of the game 
- */
- 
- 
+//the javascript for the game logic

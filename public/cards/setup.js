@@ -6,8 +6,7 @@ jQuery(document).ready(function(){
 		nextPage();
 	});
 	jQuery('body').on('click','#game_start', function(){
-		remove_card(".card_setup");
-		
+		launchGame();
 	});
 	$('#num_god').selectivity({
 	    allowClear: true,
@@ -31,7 +30,12 @@ function nextPage(){
 }
 
 function launchGame(){
-
+	//prepare the set of cards and launch the game
+	remove_card(".card_setup");
+	if (cupid in data.active_roles.god){
+		//insert the cupid card at first
+		
+	}
 }
 
 function role_select(ele){
