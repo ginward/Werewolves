@@ -169,7 +169,6 @@ button:active::after {
   display: inline-block !important;
   margin-left: 5px;
   margin-right: 5px;
-  margin-top: 3%;
   width: 180px;
   height: 180px;  
 }
@@ -187,4 +186,8 @@ button:active::after {
 
 .wolf {
   position: relative !important;
+}
+
+.wolf_slide {
+  margin-top: 3% !important;
 }
