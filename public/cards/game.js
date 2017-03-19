@@ -3,27 +3,22 @@ jQuery(document).ready(function(){
 	jQuery('body').on('click', '.game_butt', function () {
 		nextPage();
 	});
-
 	jQuery('body').on('click', '#wolf_butt', function(){
-		var arr =  [];
-		jQuery('#wolf_identity:selected').each(function(){
-	        arr.push(jQuery(this).val()); 
-	    });
-	    console.log(arr);
+		var arr = jQuery('#wolf_kill').selectivity('data');
 		for (var i=0; i<data.players.length; i++){
 			for (var j=0; j< arr.length; j++){
-				var role = data.players[i].role;
-				if(data.players[i].role=="witch" || data.players[i].role=="hunter" ||  data.players[i].role=="cupid" ||  data.players[i].role=="prophet") {
+				var role = players[i].role;
+				if(players[i].role=="witch" || players[i].role=="hunter" ||  players[i].role=="cupid" ||  players[i].role=="prophet") {
 					role = "god";
 				}
 				if (i==arr[j].id){
 					data.role_count[role] -= 1; 
 					players[i].die();
 				} else {
-					if(data.players[i].live_status==false){
+					if(players[i].live_status==false){
 						data.role_count[role] +=1; 
 					}
-					data.players[i].reset();
+					players[i].reset();
 				}
 			}
 		}
@@ -44,7 +39,7 @@ function nextPage(){
 	if(activeCardName().includes("wolf")){
 		//we are at the wolf page
 		//count the numeber of wolves and populate the option box
-		document.getElementById('wolf_identity').innerHTML = "<optgroup disabled hidden></optgroup>";
+		document.getElementById('wolf_identity').innerHTML = "";
 		document.getElementById('wolf_kill').innerHTML = "";
 		for (var i=0;i<num_total;i++){
 		    var opt = document.createElement('option');
@@ -58,6 +53,13 @@ function nextPage(){
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('wolf_kill').appendChild(opt);
 		}
+		jQuery('#wolf_identity').selectivity({
+		    multiple:true,
+		    placeholder: '请选择'
+		});
+		jQuery('#wolf_kill').selectivity({
+		    placeholder: '请选择'
+		});
 	} else if (activeCardName().includes("witch")){
 		//we are at the witch page
 		document.getElementById('witch_identity').innerHTML = "";
@@ -80,7 +82,16 @@ function nextPage(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('witch_kill').appendChild(opt);
-		}		
+		}
+		jQuery('#witch_identity').selectivity({
+		    placeholder: '请选择'
+		});
+		jQuery('#witch_kill').selectivity({
+		    placeholder: '请选择'
+		});	
+		jQuery('#witch_save').selectivity({
+		    placeholder: '请选择'
+		});			
 	} else if (activeCardName().includes("prophet")) {
 		document.getElementById('prophet_identity').innerHTML = "";		
 		document.getElementById('prophet_check').innerHTML = "";	
@@ -95,6 +106,20 @@ function nextPage(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('prophet_check').appendChild(opt);
-		}						
+		}			
+		jQuery('#prophet_identity').selectivity({
+		    placeholder: '请选择'
+		});	
+		jQuery('#prophet_check').selectivity({
+		    placeholder: '请选择'
+		});		
+		jQuery('body').on('click', '#prophet_butt', function(){
+				var play_id = jQuery("#prophet_check").val();
+				if (data.players[play_id].role =="werewolf"){
+					alert("这玩家是坏人");
+				}else{
+					alert("这玩家是好人");
+				}
+		});
 	}
 }
