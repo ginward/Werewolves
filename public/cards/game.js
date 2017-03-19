@@ -4,7 +4,7 @@ jQuery(document).ready(function(){
 		nextPage();
 	});
 	jQuery('body').on('click', '#wolf_butt', function(){
-		var arr = jQuery('#wolf_kill').selectivity('data');
+		//var arr = jQuery('#wolf_kill').selectivity('data');
 		for (var i=0; i<players.length; i++){
 			for (var j=0; j< arr.length; j++){
 				var role = players[i].role;
@@ -53,13 +53,6 @@ function nextPage(){
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('wolf_kill').appendChild(opt);
 		}
-		jQuery('#wolf_identity').selectivity({
-		    multiple:true,
-		    placeholder: '请选择'
-		});
-		jQuery('#wolf_kill').selectivity({
-		    placeholder: '请选择'
-		});
 	} else if (activeCardName().includes("witch")){
 		//we are at the witch page
 		document.getElementById('witch_identity').innerHTML = "";
@@ -82,16 +75,7 @@ function nextPage(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('witch_kill').appendChild(opt);
-		}
-		jQuery('#witch_identity').selectivity({
-		    placeholder: '请选择'
-		});
-		jQuery('#witch_kill').selectivity({
-		    placeholder: '请选择'
-		});	
-		jQuery('#witch_save').selectivity({
-		    placeholder: '请选择'
-		});			
+		}		
 	} else if (activeCardName().includes("prophet")) {
 		document.getElementById('prophet_identity').innerHTML = "";		
 		document.getElementById('prophet_check').innerHTML = "";	
@@ -106,12 +90,6 @@ function nextPage(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('prophet_check').appendChild(opt);
-		}			
-		jQuery('#prophet_identity').selectivity({
-		    placeholder: '请选择'
-		});	
-		jQuery('#prophet_check').selectivity({
-		    placeholder: '请选择'
-		});				
+		}						
 	}
 }

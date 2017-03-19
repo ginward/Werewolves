@@ -8,21 +8,6 @@ jQuery(document).ready(function(){
 	jQuery('body').on('click','#game_start', function(){
 		launchGame();
 	});
-	jQuery('#num_god').selectivity({
-	    allowClear: true,
-	    items: ['9', '10', '11', '12'],
-	    placeholder: '请选择'
-	});
-	jQuery('#num_wolf').selectivity({
-	    allowClear: true,
-	    items: ['9', '10', '11', '12'],
-	    placeholder: '请选择'
-	});
-	jQuery('#num_people').selectivity({
-	    allowClear: true,
-	    items: ['9', '10', '11', '12'],
-	    placeholder: '请选择'
-	});
 	init_roles();
 });
 
