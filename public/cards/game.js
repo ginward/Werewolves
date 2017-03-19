@@ -5,26 +5,18 @@ jQuery(document).ready(function(){
 	});
 
 	jQuery('body').on('click', '#wolf_butt', function(){
-		var arr =  [];
-		jQuery('#wolf_identity:selected').each(function(){
-	        arr.push(jQuery(this).val()); 
-	    });
-	    console.log(arr);
-		for (var i=0; i<data.players.length; i++){
-			for (var j=0; j< arr.length; j++){
-				var role = data.players[i].role;
-				if(data.players[i].role=="witch" || data.players[i].role=="hunter" ||  data.players[i].role=="cupid" ||  data.players[i].role=="prophet") {
-					role = "god";
-				}
-				if (i==arr[j].id){
-					data.role_count[role] -= 1; 
-					data.players[i].die();
-				} else {
-					if(data.players[i].live_status==false){
-						data.role_count[role] +=1; 
-					}
-					data.players[i].reset();
-				}
+		var arr =  jQuery('#wolf_identity').val();
+		//set the identity of the wolf 
+		for (var i =0 ; i < arr.length; i++){
+			data.players[i].role = "werewolf";
+			data.role_count["werewolf"]+=1;
+		}
+		//set the target to kill
+		var to_kill = jQuery("#wolf_kill").val();
+		data.players[to_kill].die(arr);
+		for (var i=0; i<data.players.length;i++){
+			if (i!=to_kill){
+				data.players[i].reset();
 			}
 		}
 
