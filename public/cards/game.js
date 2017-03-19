@@ -19,7 +19,10 @@ jQuery(document).ready(function(){
 				data.players[i].reset();
 			}
 		}
+	});
 
+	jQuery('body').on('click', "#morning_next_round", function(){
+		nextRound();
 	});
 });
 
@@ -95,12 +98,16 @@ function nextPage(){
  * The function to move the game to next round and check if the game is over
  */
 function nextRound(){
-
+	if(ifGameOver()){
+		alert("游戏结束!");
+	} else {
+		swiper.slideTo("0");
+	}
 }
 
 /*
  * The function to check if the game is over
  */
 function ifGameOver(){
-
+	return false;
 }
