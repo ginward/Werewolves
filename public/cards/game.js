@@ -58,7 +58,6 @@ function nextPage(){
 		    placeholder: '请选择'
 		});
 		jQuery('#wolf_kill').selectivity({
-		    multiple:true,
 		    placeholder: '请选择'
 		});
 	} else if (activeCardName().includes("witch")){
@@ -85,15 +84,12 @@ function nextPage(){
 		 	document.getElementById('witch_kill').appendChild(opt);
 		}
 		jQuery('#witch_identity').selectivity({
-		    multiple:true,
 		    placeholder: '请选择'
 		});
 		jQuery('#witch_kill').selectivity({
-		    multiple:true,
 		    placeholder: '请选择'
 		});	
 		jQuery('#witch_save').selectivity({
-		    multiple:true,
 		    placeholder: '请选择'
 		});			
 	} else if (activeCardName().includes("prophet")) {
@@ -112,11 +108,9 @@ function nextPage(){
 		 	document.getElementById('prophet_check').appendChild(opt);
 		}			
 		jQuery('#prophet_identity').selectivity({
-		    multiple:true,
 		    placeholder: '请选择'
 		});	
 		jQuery('#prophet_check').selectivity({
-		    multiple:true,
 		    placeholder: '请选择'
 		});				
 	}
