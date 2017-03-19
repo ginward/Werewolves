@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
 				}
 				if (i==arr[j].id){
 					data.role_count[role] -= 1; 
-					players[i].die();
+					data.players[i].die();
 				} else {
 					if(data.players[i].live_status==false){
 						data.role_count[role] +=1; 

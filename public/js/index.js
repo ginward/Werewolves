@@ -30,11 +30,9 @@ function load_card(url_to_html, url_to_js){
 }
 
 function fix_multiple(){
-	jQuery('option').mousedown(function(e) {
-	    e.preventDefault();
-	    jQuery(this).prop('selected', jQuery(this).prop('selected') ? false : true);
-	    return false;
-	});
+   jQuery('select').on('mousedown touchstart MSPointerDown', function(e){
+           e.stopPropagation();
+   }); 
 }
 
 function load_card_html(html, url_to_js){
