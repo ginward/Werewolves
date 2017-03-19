@@ -30,7 +30,7 @@ body {
     margin-bottom: 20px;
     text-align: center;
     height: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 .wolf_img{
     display: inline;
@@ -47,7 +47,8 @@ body {
 .intro_butt{
     display: inherit;
     margin:auto;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 /*
