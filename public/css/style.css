@@ -211,10 +211,10 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  color: cornflowerblue !important; // color of the selected option
-  option {
-    color: black !important; // color of all the other options
-  }
+}
+
+select[multiple]:focus option:checked {
+  background: red linear-gradient(0deg, red 0%, red 100%) !important;
 }
 
 .wolf_s {
@@ -237,7 +237,6 @@ select {
 .witch_s {
   background: url(../res/witch.png) 96% / 15% no-repeat #eee; 
 }
-
 
 /* CAUTION: IE hackery ahead */
 

@@ -12,6 +12,7 @@ var data = Object.create(Data.prototype);
 document.addEventListener("touchstart", function() {},false); // add this junk to make iOS observe the :active state for touch
 
 jQuery(document).ready(function(){
+	fix_multiple();
 	load_card("cards/setup.html", "cards/setup.js");
 });
 
@@ -26,6 +27,14 @@ function load_card(url_to_html, url_to_js){
 			jQuery.getScript(url_to_js);
 		}
 	});	
+}
+
+function fix_multiple(){
+	jQuery('option').mousedown(function(e) {
+	    e.preventDefault();
+	    jQuery(this).prop('selected', jQuery(this).prop('selected') ? false : true);
+	    return false;
+	});
 }
 
 function load_card_html(html, url_to_js){
