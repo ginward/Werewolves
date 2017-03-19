@@ -39,7 +39,7 @@ function nextPage(){
 	if(activeCardName().includes("wolf")){
 		//we are at the wolf page
 		//count the numeber of wolves and populate the option box
-		document.getElementById('wolf_identity').innerHTML = "";
+		document.getElementById('wolf_identity').innerHTML = "<optgroup disabled hidden></optgroup>";
 		document.getElementById('wolf_kill').innerHTML = "";
 		for (var i=0;i<num_total;i++){
 		    var opt = document.createElement('option');

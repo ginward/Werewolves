@@ -210,6 +210,10 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  color: cornflowerblue !important; // color of the selected option
+  option {
+    color: black !important; // color of all the other options
+  }
 }
 
 .wolf_s {
