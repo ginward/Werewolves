@@ -90,3 +90,10 @@ function nextPage(){
 		}						
 	}
 }
+
+/*
+ * The function to check if the game is over
+ */
+function ifGameOver(){
+
+}
