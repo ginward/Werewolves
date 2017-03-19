@@ -1,5 +1,12 @@
 //the javascript for the game logic
 jQuery(document).ready(function(){
+
+	//add the game status button
+	jQuery.get("cards/status.html", function(data){
+		jQuery('body').append(data);
+		console.log(data);
+	});
+
 	jQuery('body').on('click', '.game_butt', function () {
 		nextPage();
 	});
@@ -20,7 +27,6 @@ jQuery(document).ready(function(){
 			}
 		}
 	});
-
 	jQuery('body').on('click', "#morning_next_round", function(){
 		nextRound();
 	});
