@@ -92,6 +92,13 @@ function nextPage(){
 }
 
 /*
+ * The function to move the game to next round and check if the game is over
+ */
+function nextRound(){
+
+}
+
+/*
  * The function to check if the game is over
  */
 function ifGameOver(){
