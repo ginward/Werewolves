@@ -7,6 +7,13 @@ jQuery(document).ready(function(){
 		console.log(data);
 	});
 
+	//load the status html popup
+	//add the game status button
+	jQuery.get("cards/status_display.html", function(data){
+		jQuery('body').append(data);
+		console.log(data);
+	});
+
 	jQuery('body').on('click', '.game_butt', function () {
 		nextPage();
 	});
