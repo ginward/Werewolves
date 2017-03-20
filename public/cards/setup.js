@@ -64,6 +64,8 @@ function gameCards(params){
 					jQuery.get("cards/morning.html",function(morning){
 						data+=morning;
 						load_card_html(data, "cards/game.js");
+						//load the status html popup
+						load_card("cards/status_display.html", "");
 					})
 				});
 			});
