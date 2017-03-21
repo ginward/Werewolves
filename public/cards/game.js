@@ -1,6 +1,14 @@
 //the javascript for the game logic
 jQuery(document).ready(function(){
 
+	swiper = new Swiper('.swiper-container', {
+	    pagination: '.swiper-pagination',
+	    paginationClickable: true,
+	    onTransitionEnd: function(){
+			proceedGame();
+		}
+	});
+
 	//add the game status button
 	jQuery.get("cards/status.html", function(data){
 		jQuery('body').append(data);
@@ -45,6 +53,9 @@ function activeCardName(){
 
 function nextPage(){
 	swiper.slideNext();
+}
+
+function proceedGame(){
 	num_wolf = data.role_count.werewolf;
 	num_god = data.role_count.god; 
 	num_people = data.role_count.people;
