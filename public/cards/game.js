@@ -27,12 +27,10 @@ jQuery(document).ready(function(){
 	});
 
 	jQuery('body').on('click', '#wolf_butt', function(){
-
 		var arr =  jQuery('#wolf_identity').val();
 		//set the identity of the wolf 
 		for (var i =0 ; i < arr.length; i++){
 			data.players[arr[i]-1].role = "werewolf";
-			data.role_count["werewolf"]+=1;
 		}
 		//set the target to kill
 		var to_kill = jQuery("#wolf_kill").val();
@@ -52,7 +50,7 @@ jQuery(document).ready(function(){
 				alert("这玩家是好人");
 			}
 	});
-	
+
 	jQuery('body').on('click', "#morning_next_round", function(){
 		nextRound();
 	});
@@ -114,6 +112,7 @@ function proceedGame(){
 	} else if (activeCardName().includes("prophet")) {
 		document.getElementById('prophet_identity').innerHTML = "";		
 		document.getElementById('prophet_check').innerHTML = "";	
+		console.log(num_total);
 		for (var i=0;i<num_total;i++){
 		    var opt = document.createElement('option');
 		    opt.value = i+1;

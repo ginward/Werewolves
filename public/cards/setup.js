@@ -1,8 +1,8 @@
 jQuery(document).ready(function(){
 	jQuery('body').on('click', '#intro_button', function () {
-		data.role_count.god = jQuery("#num_god").val();
-		data.role_count.witch = jQuery("#witch").val();
-		data.role_count.people = jQuery("#num_people").val();
+		data.role_count.god = parseInt(jQuery("#num_god").val());
+		data.role_count.witch = parseInt(jQuery("#witch").val());
+		data.role_count.people = parseInt(jQuery("#num_people").val());
 		nextPageSetup();
 	});
 	jQuery('body').on('click','#game_start', function(){
@@ -18,9 +18,9 @@ function nextPageSetup(){
 //initialize the roles in database and set the roles to null
 function init_roles(){
 	data.players = []; // re-empty the array
-	var num_god = jQuery("#num_god").val();
-	var num_people = jQuery("#num_people").val();
-	var num_wolf = jQuery("#num_wolf").val();
+	var num_god = parseInt(jQuery("#num_god").val());
+	var num_people = parseInt(jQuery("#num_people").val());
+	var num_wolf = parseInt(jQuery("#num_wolf").val());
 	data.role_count.god = num_god;
 	data.role_count.werewolf = num_wolf;
 	data.role_count.people = num_people;
