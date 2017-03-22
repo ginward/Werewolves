@@ -31,7 +31,7 @@ jQuery(document).ready(function(){
 		var arr =  jQuery('#wolf_identity').val();
 		//set the identity of the wolf 
 		for (var i =0 ; i < arr.length; i++){
-			data.players[i].role = "werewolf";
+			data.players[arr[i]-1].role = "werewolf";
 			data.role_count["werewolf"]+=1;
 		}
 		//set the target to kill
@@ -118,7 +118,7 @@ function proceedGame(){
 		}
 		jQuery('body').on('click', '#prophet_butt', function(){
 				var play_id = jQuery("#prophet_check").val();
-				if (data.players[play_id].role =="werewolf"){
+				if (data.players[play_id-1].role =="werewolf"){
 					alert("这玩家是坏人");
 				}else{
 					alert("这玩家是好人");
