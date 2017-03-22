@@ -43,6 +43,16 @@ jQuery(document).ready(function(){
 			}
 		}
 	});
+
+	jQuery('body').on('click', '#prophet_butt', function(){
+			var play_id = jQuery("#prophet_check").val();
+			if (data.players[play_id-1].role =="werewolf"){
+				alert("这玩家是坏人");
+			}else{
+				alert("这玩家是好人");
+			}
+	});
+	
 	jQuery('body').on('click', "#morning_next_round", function(){
 		nextRound();
 	});
@@ -116,14 +126,6 @@ function proceedGame(){
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('prophet_check').appendChild(opt);
 		}
-		jQuery('body').on('click', '#prophet_butt', function(){
-				var play_id = jQuery("#prophet_check").val();
-				if (data.players[play_id-1].role =="werewolf"){
-					alert("这玩家是坏人");
-				}else{
-					alert("这玩家是好人");
-				}
-		});
 	}
 }
 
