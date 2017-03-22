@@ -30,7 +30,7 @@ body {
     margin-bottom: 20px;
     text-align: center;
     height: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
 }
 .wolf_img{
     display: inline;
@@ -47,7 +47,8 @@ body {
 .intro_butt{
     display: inherit;
     margin:auto;
-    margin-top: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 /*
@@ -145,11 +146,6 @@ button:active::after {
 }
 /* end button */
 
-/*fix the selectivity problem*/
-.selectivity-dropdown {
-  position: absolute !important;
-}
-
 .select_setup {
   margin-top: 10px;
   margin-bottom: 10px;
@@ -173,6 +169,15 @@ button:active::after {
   height: 180px;  
 }
 
+.theme_div_short{
+  border-radius: 50%;
+  display: inline-block !important;
+  margin-left: 5px;
+  margin-right: 5px;
+  width: 120;
+  height: 120;  
+}
+
 .role_div:hover {
   background-color: cornflowerblue;
   transition-property: background;
@@ -192,10 +197,120 @@ button:active::after {
   margin-top: 3% !important;
 }
 
-.witch_slide {
-  margin-top: 0 !important;
+/*Select Box*/
+
+select {
+  margin: 2px;
+  border: 1px solid #111;
+  background: transparent;
+  width: 240px;
+  padding: 5px 35px 5px 5px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  height: 50px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 
-.select_witch p {
-  font-size: 0.7em;
+select[multiple]:focus option:checked {
+  background: cornflowerblue !important;
+}
+
+.wolf_s {
+  background: url(../res/wolf.png) 96% / 15% no-repeat #eee;
+}
+
+
+.god_s {
+  background: url(../res/witch.png) 96% / 15% no-repeat #eee;
+}
+
+.people_s {
+  background: url(../res/people.png) 96% / 15% no-repeat #eee; 
+}
+
+.prophet_s {
+  background: url(../res/prophet.png) 96% / 15% no-repeat #eee; 
+}
+
+.witch_s {
+  background: url(../res/witch.png) 96% / 15% no-repeat #eee; 
+}
+
+/* CAUTION: IE hackery ahead */
+
+
+select::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    }
+}
+
+
+/*
+ * The circular div for the player status
+ */
+
+.circleBase {
+    border-radius: 50% !important;
+}
+
+.circle_div {
+    width: 80 !important;
+    height: 80 !important;
+    background: cornflowerblue;
+    color: white;
+    font-size: 0.9em;
+    border: 0;
+    position: absolute !important;
+    top: 5px;
+    left: 5px;
+    z-index: 99999;
+    text-align: center;
+    line-height: 80px;
+}
+
+#game_status::before{
+  height: 0 !important;
+  border:0 !important;
+}
+
+#game_status::after{
+  height: 0 !important;
+  border:0 !important;
+}
+
+/*The CSS for the popup*/
+.black_overlay {
+  display: none;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.8;
+  opacity: .80;
+  filter: alpha(opacity=80);
+}
+.white_content {
+  display: none;
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  width: 50%;
+  height: 50%;
+  padding: 16px;
+  border: 0;
+  background-color: white;
+  z-index: 1002;
+  overflow: auto;
 }

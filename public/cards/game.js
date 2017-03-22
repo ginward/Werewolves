@@ -1,28 +1,50 @@
 //the javascript for the game logic
 jQuery(document).ready(function(){
+
+	swiper = new Swiper('.swiper-container', {
+	    pagination: '.swiper-pagination',
+	    paginationClickable: true,
+	    onTransitionEnd: function(){
+			proceedGame();
+		}
+	});
+
+	//add the game status button
+	jQuery.get("cards/status.html", function(data){
+		jQuery('body').append(data);
+		console.log(data);
+	});
+
+	//load the status html popup
+	//add the game status button
+	jQuery.get("cards/status_display.html", function(data){
+		jQuery('body').append(data);
+		console.log(data);
+	});
+
 	jQuery('body').on('click', '.game_butt', function () {
 		nextPage();
 	});
+
 	jQuery('body').on('click', '#wolf_butt', function(){
-		var arr = jQuery('#wolf_kill').selectivity('data');
-		for (var i=0; i<data.players.length; i++){
-			for (var j=0; j< arr.length; j++){
-				var role = players[i].role;
-				if(players[i].role=="witch" || players[i].role=="hunter" ||  players[i].role=="cupid" ||  players[i].role=="prophet") {
-					role = "god";
-				}
-				if (i==arr[j].id){
-					data.role_count[role] -= 1; 
-					players[i].die();
-				} else {
-					if(players[i].live_status==false){
-						data.role_count[role] +=1; 
-					}
-					players[i].reset();
-				}
+
+		var arr =  jQuery('#wolf_identity').val();
+		//set the identity of the wolf 
+		for (var i =0 ; i < arr.length; i++){
+			data.players[i].role = "werewolf";
+			data.role_count["werewolf"]+=1;
+		}
+		//set the target to kill
+		var to_kill = jQuery("#wolf_kill").val();
+		data.players[to_kill].die(arr);
+		for (var i=0; i<data.players.length;i++){
+			if (i!=to_kill){
+				data.players[i].reset();
 			}
 		}
-
+	});
+	jQuery('body').on('click', "#morning_next_round", function(){
+		nextRound();
 	});
 });
 
@@ -32,6 +54,9 @@ function activeCardName(){
 
 function nextPage(){
 	swiper.slideNext();
+}
+
+function proceedGame(){
 	num_wolf = data.role_count.werewolf;
 	num_god = data.role_count.god; 
 	num_people = data.role_count.people;
@@ -39,7 +64,7 @@ function nextPage(){
 	if(activeCardName().includes("wolf")){
 		//we are at the wolf page
 		//count the numeber of wolves and populate the option box
-		document.getElementById('wolf_identity').innerHTML = "";
+		document.getElementById('wolf_identity').innerHTML = "<optgroup disabled hidden></optgroup>";
 		document.getElementById('wolf_kill').innerHTML = "";
 		for (var i=0;i<num_total;i++){
 		    var opt = document.createElement('option');
@@ -53,13 +78,6 @@ function nextPage(){
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('wolf_kill').appendChild(opt);
 		}
-		jQuery('#wolf_identity').selectivity({
-		    multiple:true,
-		    placeholder: '请选择'
-		});
-		jQuery('#wolf_kill').selectivity({
-		    placeholder: '请选择'
-		});
 	} else if (activeCardName().includes("witch")){
 		//we are at the witch page
 		document.getElementById('witch_identity').innerHTML = "";
@@ -82,16 +100,7 @@ function nextPage(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('witch_kill').appendChild(opt);
-		}
-		jQuery('#witch_identity').selectivity({
-		    placeholder: '请选择'
-		});
-		jQuery('#witch_kill').selectivity({
-		    placeholder: '请选择'
-		});	
-		jQuery('#witch_save').selectivity({
-		    placeholder: '请选择'
-		});			
+		}		
 	} else if (activeCardName().includes("prophet")) {
 		document.getElementById('prophet_identity').innerHTML = "";		
 		document.getElementById('prophet_check').innerHTML = "";	
@@ -106,13 +115,7 @@ function nextPage(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('prophet_check').appendChild(opt);
-		}			
-		jQuery('#prophet_identity').selectivity({
-		    placeholder: '请选择'
-		});	
-		jQuery('#prophet_check').selectivity({
-		    placeholder: '请选择'
-		});		
+		}
 		jQuery('body').on('click', '#prophet_butt', function(){
 				var play_id = jQuery("#prophet_check").val();
 				if (data.players[play_id].role =="werewolf"){
@@ -122,4 +125,22 @@ function nextPage(){
 				}
 		});
 	}
+}
+
+/*
+ * The function to move the game to next round and check if the game is over
+ */
+function nextRound(){
+	if(ifGameOver()){
+		alert("游戏结束!");
+	} else {
+		swiper.slideTo("0");
+	}
+}
+
+/*
+ * The function to check if the game is over
+ */
+function ifGameOver(){
+	return false;
 }

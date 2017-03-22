@@ -12,6 +12,7 @@ var data = Object.create(Data.prototype);
 document.addEventListener("touchstart", function() {},false); // add this junk to make iOS observe the :active state for touch
 
 jQuery(document).ready(function(){
+	fix_multiple();
 	load_card("cards/setup.html", "cards/setup.js");
 });
 
@@ -28,12 +29,14 @@ function load_card(url_to_html, url_to_js){
 	});	
 }
 
+function fix_multiple(){
+   jQuery('select').on('mousedown touchstart MSPointerDown', function(e){
+           e.stopPropagation();
+   }); 
+}
+
 function load_card_html(html, url_to_js){
 	jQuery("#swipe-wrap").append(html);
-	swiper = new Swiper('.swiper-container', {
-	    pagination: '.swiper-pagination',
-	    paginationClickable: true,
-	});
 	if (url_to_js!=""){
 		jQuery.getScript(url_to_js);
 	}
