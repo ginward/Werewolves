@@ -27,6 +27,7 @@ jQuery(document).ready(function(){
 	});
 
 	jQuery('body').on('click', '#wolf_butt', function(){
+
 		var arr =  jQuery('#wolf_identity').val();
 		//set the identity of the wolf 
 		for (var i =0 ; i < arr.length; i++){
@@ -114,7 +115,15 @@ function proceedGame(){
 		    opt.value = i+1;
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('prophet_check').appendChild(opt);
-		}						
+		}
+		jQuery('body').on('click', '#prophet_butt', function(){
+				var play_id = jQuery("#prophet_check").val();
+				if (data.players[play_id].role =="werewolf"){
+					alert("这玩家是坏人");
+				}else{
+					alert("这玩家是好人");
+				}
+		});
 	}
 }
 
