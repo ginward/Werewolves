@@ -19,9 +19,6 @@ body {
     font-size: 18px;
     background: #fff;
 }
-#wolf-text{
-
-}
 .ms-container {
     margin:auto;
 }
@@ -48,7 +45,7 @@ body {
     display: inherit;
     margin:auto;
     margin-top: 15px;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 }
 
 /*
@@ -306,11 +303,33 @@ select::-ms-expand {
   position: absolute;
   top: 25%;
   left: 25%;
-  width: 50%;
+  width: auto;
   height: 50%;
   padding: 16px;
   border: 0;
   background-color: white;
   z-index: 1002;
   overflow: auto;
+  text-align: center;
+}
+#wolf_count, #god_count, #people_count {
+  font-size: 1.5em;
+  line-height: 64px;
+}
+
+.status_img {
+  float:left;
+  margin-left:15px;
+  clear: left;
+}
+
+.status_txt {
+  float:right;
+  margin-right: 15px;
+  clear: right;
+}
+
+.status_butt {
+  float: left;
+  clear: both;
 }
