@@ -303,6 +303,7 @@ select::-ms-expand {
   position: absolute;
   top: 25%;
   left: 25%;
+  right: 25%;
   width: auto;
   height: 50%;
   padding: 16px;
@@ -319,17 +320,17 @@ select::-ms-expand {
 
 .status_img {
   float:left;
-  margin-left:15px;
+  margin-left:20%;
   clear: left;
 }
 
 .status_txt {
   float:right;
-  margin-right: 15px;
+  margin-right: 20%;
   clear: right;
 }
 
 .status_butt {
-  float: left;
   clear: both;
+  margin-top:20px;
 }
