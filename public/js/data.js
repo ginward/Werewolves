@@ -32,6 +32,9 @@ Data.prototype.active_roles = {
 
 Data.prototype.players = [];
 
+//count the number of rounds in the game
+Data.prototype.roundCount = 0;
+
 var Player = function (role){
 	this.role = role; 
 	this.live_status = true;

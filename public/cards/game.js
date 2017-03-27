@@ -143,6 +143,8 @@ function nextRound(){
 	if(ifGameOver()){
 		alert("游戏结束!");
 	} else {
+		data.roundCount++;
+		jQuery(".setup_hidden").hide();
 		swiper.slideTo("0");
 	}
 }
