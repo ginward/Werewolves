@@ -58,7 +58,13 @@ jQuery(document).ready(function(){
 
 	jQuery('body').on('click','#witch_butt', function(){
 		var witch_id = parseInt(jQuery("#witch_identity").val());
-
+		var witch_action = jQuery("#witch_drug").val();
+		var witch_target = jQuery("#witch_save_kill").val();
+		if(witch_action=="save"){
+			data.players[witch_target].save_live(witch_id);
+		} else {
+			data.players[witch_id].die(witch_id);
+		}
 	});
 
 	jQuery('#witch_drug').change(function(){
