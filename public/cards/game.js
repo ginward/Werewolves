@@ -33,13 +33,8 @@ jQuery(document).ready(function(){
 			data.players[arr[i]-1].role = "werewolf";
 		}
 		//set the target to kill
-		var to_kill = jQuery("#wolf_kill").val();
-		data.players[to_kill].die(arr);
-		for (var i=0; i<data.players.length;i++){
-			if (i!=to_kill){
-				data.players[i].reset();
-			}
-		}
+		var to_kill = parseInt(jQuery("#wolf_kill").val());
+		killPlayer(to_kill, arr);
 	});
 
 	jQuery('body').on('click', '#prophet_butt', function(){
@@ -61,9 +56,9 @@ jQuery(document).ready(function(){
 		var witch_action = jQuery("#witch_drug").val();
 		var witch_target = jQuery("#witch_save_kill").val();
 		if(witch_action=="save"){
-			data.players[witch_target].save_live(witch_id);
+			savePlayer(witch_target, witch_id);
 		} else {
-			data.players[witch_id].die(witch_id);
+			killPlayer(witch_target, witch_id);
 		}
 	});
 
@@ -87,6 +82,20 @@ jQuery(document).ready(function(){
 		nextRound();
 	});
 });
+
+function killPlayer(target, murderer){
+	if(data.players[target].live_status!=false) {
+		data.role_count[data.players[target].role]--;
+	}
+	data.players[target].die(murderer);
+}
+
+function savePlayer(target, hero){
+	if(data.players[target].live_status==false) {
+		data.role_count[data.players[target].role]++;
+	}
+	data.players[target].save_live(hero);
+}
 
 function activeCardName(){
 	return jQuery('.swiper-slide-active')[0].className;
@@ -195,5 +204,6 @@ function nextRound(){
  * The function to check if the game is over
  */
 function ifGameOver(){
+
 	return false;
 }
