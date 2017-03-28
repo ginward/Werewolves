@@ -56,6 +56,11 @@ jQuery(document).ready(function(){
 		data.players[play_id].role="hunter";
 	});
 
+	jQuery('body').on('click','#witch_butt', function(){
+		var witch_id = parseInt(jQuery("#witch_identity").val());
+
+	});
+
 	jQuery('body').on('click', '#game_status', function(){
 		document.getElementById('light').style.display='block';
 		document.getElementById('fade').style.display='block';
@@ -105,25 +110,27 @@ function proceedGame(){
 		if(data.roundCount==0) {
 			//we are at the witch page
 			document.getElementById('witch_identity').innerHTML = "";
-			document.getElementById('witch_save').innerHTML = "";
-			document.getElementById('witch_kill').innerHTML = "";
+			document.getElementById('witch_drug').innerHTML = "";
+			document.getElementById('witch_save_kill').innerHTML = "";
 			for (var i=0;i<num_total;i++){
 			    var opt = document.createElement('option');
 			    opt.value = i+1;
 			    opt.innerHTML = (i+1).toString() + " 号";
 			 	document.getElementById('witch_identity').appendChild(opt);
 			}		
+		    var opt = document.createElement('option');
+		    opt.value = "kill";
+		    opt.innerHTML =  "毒药";
+		 	document.getElementById('witch_drug').appendChild(opt);
+		    var opt = document.createElement('option');
+		    opt.value = "save";
+		    opt.innerHTML = "解药";
+		 	document.getElementById('witch_drug').appendChild(opt);		 	
 			for (var i=0;i<num_total;i++){
 			    var opt = document.createElement('option');
 			    opt.value = i+1;
 			    opt.innerHTML = (i+1).toString() + " 号";
-			 	document.getElementById('witch_save').appendChild(opt);
-			}
-			for (var i=0;i<num_total;i++){
-			    var opt = document.createElement('option');
-			    opt.value = i+1;
-			    opt.innerHTML = (i+1).toString() + " 号";
-			 	document.getElementById('witch_kill').appendChild(opt);
+			 	document.getElementById('witch_save_kill').appendChild(opt);
 			}
 		}		
 	} else if (activeCardName().includes("prophet")) {
