@@ -61,6 +61,14 @@ jQuery(document).ready(function(){
 
 	});
 
+	jQuery('#witch_drug').change(function(){
+		if(jQuery("#witch_drug").val()=="save"){
+			jQuery("#witch_line").html("请选择女巫要救的玩家");
+		} else {
+			jQuery("#witch_line").html("请选择女巫要毒的玩家");
+		}
+	});	
+
 	jQuery('body').on('click', '#game_status', function(){
 		document.getElementById('light').style.display='block';
 		document.getElementById('fade').style.display='block';
