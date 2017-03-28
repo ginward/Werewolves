@@ -26,7 +26,7 @@ function init_roles(){
 	data.role_count.people = num_people;
 	var total_num = parseInt(num_god) + parseInt(num_people) + parseInt(num_wolf);
 	for (var i=0;i<total_num;i++){
-		var player = new Player("");
+		var player = new Player("people");
 		data.players.push(player);
 	}
 }
