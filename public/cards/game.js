@@ -78,68 +78,76 @@ function proceedGame(){
 	num_people = data.role_count.people;
 	num_total = parseInt(num_wolf)+ parseInt(num_god) + parseInt(num_people);
 	if(activeCardName().includes("wolf")){
-		//we are at the wolf page
-		//count the numeber of wolves and populate the option box
-		document.getElementById('wolf_identity').innerHTML = "<optgroup disabled hidden></optgroup>";
-		document.getElementById('wolf_kill').innerHTML = "";
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('wolf_identity').appendChild(opt);
-		}
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('wolf_kill').appendChild(opt);
+		if(data.roundCount==0){
+			//we are at the wolf page
+			//count the numeber of wolves and populate the option box
+			document.getElementById('wolf_identity').innerHTML = "<optgroup disabled hidden></optgroup>";
+			document.getElementById('wolf_kill').innerHTML = "";
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('wolf_identity').appendChild(opt);
+			}
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('wolf_kill').appendChild(opt);
+			}
 		}
 	} else if (activeCardName().includes("witch")){
-		//we are at the witch page
-		document.getElementById('witch_identity').innerHTML = "";
-		document.getElementById('witch_save').innerHTML = "";
-		document.getElementById('witch_kill').innerHTML = "";
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('witch_identity').appendChild(opt);
-		}		
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('witch_save').appendChild(opt);
-		}
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('witch_kill').appendChild(opt);
+		if(data.roundCount==0) {
+			//we are at the witch page
+			document.getElementById('witch_identity').innerHTML = "";
+			document.getElementById('witch_save').innerHTML = "";
+			document.getElementById('witch_kill').innerHTML = "";
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('witch_identity').appendChild(opt);
+			}		
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('witch_save').appendChild(opt);
+			}
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('witch_kill').appendChild(opt);
+			}
 		}		
 	} else if (activeCardName().includes("prophet")) {
-		document.getElementById('prophet_identity').innerHTML = "";		
-		document.getElementById('prophet_check').innerHTML = "";	
-		console.log(num_total);
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('prophet_identity').appendChild(opt);
-		}
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('prophet_check').appendChild(opt);
+		if(data.roundCount==0) {
+			document.getElementById('prophet_identity').innerHTML = "";		
+			document.getElementById('prophet_check').innerHTML = "";	
+			console.log(num_total);
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('prophet_identity').appendChild(opt);
+			}
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('prophet_check').appendChild(opt);
+			}
 		}
 	} else if (activeCardName().includes("hunter"))  {
-		document.getElementById('hunter_identity').innerHTML = "";
-		for (var i=0;i<num_total;i++){
-		    var opt = document.createElement('option');
-		    opt.value = i+1;
-		    opt.innerHTML = (i+1).toString() + " 号";
-		 	document.getElementById('hunter_identity').appendChild(opt);
+		if(data.roundCount==0){
+			document.getElementById('hunter_identity').innerHTML = "";
+			for (var i=0;i<num_total;i++){
+			    var opt = document.createElement('option');
+			    opt.value = i+1;
+			    opt.innerHTML = (i+1).toString() + " 号";
+			 	document.getElementById('hunter_identity').appendChild(opt);
+			}
 		}			
 	}
 }
