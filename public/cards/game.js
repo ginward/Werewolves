@@ -42,21 +42,26 @@ jQuery(document).ready(function(){
 		}
 	});
 
+	jQuery('body').on('click', '#prophet_butt', function(){
+		var play_id = jQuery("#prophet_check").val();
+		if (data.players[play_id-1].role =="werewolf"){
+			alert("这玩家是坏人");
+		}else{
+			alert("这玩家是好人");
+		}
+	});
+
+	jQuery('body').on('click', '#hunter_butt', function(){
+		var play_id = parseInt(jQuery("#hunter_identity").val());
+		data.players[play_id].role="hunter";
+	});
+
 	jQuery('body').on('click', '#game_status', function(){
 		document.getElementById('light').style.display='block';
 		document.getElementById('fade').style.display='block';
 		jQuery("#wolf_count").html("狼 "+data.role_count.werewolf);
 		jQuery("#god_count").html("神 "+data.role_count.god);
 		jQuery("#people_count").html("民 "+data.role_count.people);
-	});
-
-	jQuery('body').on('click', '#prophet_butt', function(){
-			var play_id = jQuery("#prophet_check").val();
-			if (data.players[play_id-1].role =="werewolf"){
-				alert("这玩家是坏人");
-			}else{
-				alert("这玩家是好人");
-			}
 	});
 
 	jQuery('body').on('click', "#morning_next_round", function(){
