@@ -235,6 +235,10 @@ select[multiple]:focus option:checked {
   background: url(../res/witch.png) 96% / 15% no-repeat #eee; 
 }
 
+.hunter_s {
+  background: url(../res/hunter.png) 96% / 15% no-repeat #eee; 
+}
+
 /* CAUTION: IE hackery ahead */
 
 

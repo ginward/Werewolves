@@ -133,6 +133,14 @@ function proceedGame(){
 		    opt.innerHTML = (i+1).toString() + " 号";
 		 	document.getElementById('prophet_check').appendChild(opt);
 		}
+	} else if (activeCardName().includes("hunter"))  {
+		document.getElementById('hunter_identity').innerHTML = "";
+		for (var i=0;i<num_total;i++){
+		    var opt = document.createElement('option');
+		    opt.value = i+1;
+		    opt.innerHTML = (i+1).toString() + " 号";
+		 	document.getElementById('hunter_identity').appendChild(opt);
+		}			
 	}
 }
 

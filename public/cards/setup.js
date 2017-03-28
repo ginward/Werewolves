@@ -61,10 +61,13 @@ function gameCards(params){
 				data+=witch;
 				jQuery.get("cards/prophets.html", function(prophet){
 					data+=prophet;
-					jQuery.get("cards/morning.html",function(morning){
-						data+=morning;
-						load_card_html(data, "cards/game.js");
-					})
+					jQuery.get("cards/hunter.html", function(hunter){
+						data+=hunter;
+						jQuery.get("cards/morning.html",function(morning){
+							data+=morning;
+							load_card_html(data, "cards/game.js");
+						})
+					});
 				});
 			});
 		});
